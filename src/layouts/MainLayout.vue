@@ -264,7 +264,91 @@
           </div>
         </div>
         <!-- for slider -->
-        <div class=""></div>
+        <div class="q-my-md bg-white" style="overflow: hidden">
+          <div
+            ref="beginnerSlider"
+            class="row no-wrap q-py-md q-px-md scrollable-row"
+            style="flex-direction: row; gap: 8px; flex-wrap: nowrap; cursor: grab"
+          >
+            <q-card class="col-7 no-shadow shadow-custom" v-for="i in 5" :key="i">
+              <div class="radius-top-x">
+                <div class="border-top-x bg-gradient-img" />
+              </div>
+              <div class="row items-center justify-between q-mt-xs">
+                <span class="q-px-xs">For Beginners</span>
+                <q-icon name="chevron_right" size="sm" class="text-grey" />
+              </div>
+            </q-card>
+          </div>
+        </div>
+        <!-- ATM  -->
+        <div class="q-my-md">
+          <q-card flat bordered class="q-pa-md">
+            <div class="row">
+              <div class="col-1">
+                <q-icon name="check_circle" color="green" size="sm" />
+              </div>
+              <div class="col-10">
+                <div class="text-weight-medium">Safe payments</div>
+                <div class="q-mb-xs text-grey-7 q-mt-xs" style="font-size: 10px">
+                  Shop confidently with our secure payment options. All card details are encrypted
+                  for maximum protection during transactions.
+                </div>
+              </div>
+            </div>
+
+            <div class="q-pl-lg row q-mb-lg q-gutter-lg">
+              <img
+                src="https://raw.githubusercontent.com/datatrans/payment-logos/master/assets/cards/visa.svg"
+                style="height: 30px; aspect-ratio: 1 / 1; object-fit: contain"
+              />
+              <img
+                src="https://raw.githubusercontent.com/datatrans/payment-logos/master/assets/cards/mastercard.svg"
+                style="height: 30px; aspect-ratio: 1 / 1; object-fit: contain"
+              />
+              <img
+                src="https://raw.githubusercontent.com/datatrans/payment-logos/master/assets/cards/discover.svg"
+                style="height: 30px; aspect-ratio: 1 / 1; object-fit: contain"
+              />
+              <img
+                src="https://raw.githubusercontent.com/datatrans/payment-logos/master/assets/wallets/apple-pay.svg"
+                style="height: 30px; aspect-ratio: 1 / 1; object-fit: contain"
+              />
+              <img
+                src="https://raw.githubusercontent.com/datatrans/payment-logos/master/assets/wallets/google-pay.svg"
+                style="height: 30px; aspect-ratio: 1 / 1; object-fit: contain"
+              />
+            </div>
+            <div class="text-grey-7 w-full q-mb-md" style="border: 1px solid #eee" />
+
+            <!--  -->
+            <div class="row q-mb-lg">
+              <div class="col-1">
+                <q-icon name="check_circle" color="green" size="sm" />
+              </div>
+              <div class="col-10">
+                <div class="text-weight-medium">Secure policy</div>
+                <div class="q-mb-xs text-grey-7 q-mt-xs" style="font-size: 10px">
+                  Your privacy matters to us. We guarantee that your personal information will never
+                  be shared with third parties.
+                </div>
+              </div>
+            </div>
+            <!--  -->
+            <div class="row">
+              <div class="col-1">
+                <q-icon name="phone" color="green" size="sm" class="q-mr-sm" />
+              </div>
+              <div class="col-10">
+                <div class="text-weight-medium">Dedicated support</div>
+                <div class="q-mb-xs text-grey-7 q-mt-xs" style="font-size: 10px">
+                  Need help? Our dedicated support team is available by phone to assist with any
+                  questions or issues you may have.
+                </div>
+              </div>
+            </div>
+          </q-card>
+        </div>
       </q-page>
     </q-page-container>
   </q-layout>
@@ -330,26 +414,37 @@ body {
 }
 
 .avatar-item {
-  border: 1px solid white; /* để rõ viền nếu có nền trùng */
+  border: 1px solid white;
   margin-left: -8px;
 }
 
 .avatar-item:first-child {
-  margin-left: 0; /* avatar đầu tiên không bị đè */
+  margin-left: 0;
+}
+.shadow-custom {
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+  border-radius: 0.6rem 0.6rem 0 0;
+  border: 1px solid #eee;
+}
+.bg-gradient-img {
+  background-image: linear-gradient(to bottom, #f8c7c7bd, #fadddd);
+  padding: 0.5rem 0.5rem;
+  height: 100px;
 }
 </style>
 <script setup lang="ts">
 import { ref, onMounted } from 'vue';
 
+// Create refs for each scrollable section
 const scrollRow = ref<HTMLDivElement | null>(null);
+const beginnerSlider = ref<HTMLDivElement | null>(null);
+// Create refs for your other sections too
 
-let isDown = false;
-let startX = 0;
-let scrollLeft = 0;
-
-onMounted(() => {
-  const el = scrollRow.value;
-  if (!el) return;
+// Add a function to apply scroll behavior to an element
+const applyScrollBehavior = (el: HTMLDivElement) => {
+  let isDown = false;
+  let startX = 0;
+  let scrollLeft = 0;
 
   const onMouseDown = (e: MouseEvent) => {
     isDown = true;
@@ -380,5 +475,12 @@ onMounted(() => {
   el.addEventListener('mouseleave', onMouseLeave);
   el.addEventListener('mouseup', onMouseUp);
   el.addEventListener('mousemove', onMouseMove);
+};
+
+onMounted(() => {
+  // Apply the behavior to each scrollable element
+  if (scrollRow.value) applyScrollBehavior(scrollRow.value);
+  if (beginnerSlider.value) applyScrollBehavior(beginnerSlider.value);
+  // Apply to your other sections too
 });
 </script>
