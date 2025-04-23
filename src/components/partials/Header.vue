@@ -20,4 +20,12 @@
 
 <script setup lang="ts"></script>
 
-<style scoped></style>
+<style scoped>
+.input-search {
+  background: #eee;
+  border: none;
+  outline: none;
+  padding: 6px 2rem 0.5rem;
+  border-radius: 2rem;
+}
+</style>
