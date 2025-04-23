@@ -6,7 +6,6 @@
         <banner-section />
         <feature-cards />
 
-        <!-- Trending Section -->
         <scrollable-section
           icon="star"
           icon-color="yellow"
@@ -17,7 +16,6 @@
           <product-card v-for="(_, index) in 5" :key="index" />
         </scrollable-section>
 
-        <!-- Easter Sale Section -->
         <div class="q-mt-md bg-gradient">
           <sale-timer-card />
           <div class="q-my-md q-pa-md">
@@ -27,7 +25,6 @@
           </div>
         </div>
 
-        <!-- Best Sellers Section -->
         <scrollable-section
           icon="emoji_events"
           icon-color="amber"
@@ -38,7 +35,6 @@
           <product-card v-for="(_, index) in 5" :key="index" />
         </scrollable-section>
 
-        <!-- New Arrivals -->
         <scrollable-section
           icon="emoji_events"
           icon-color="amber"
@@ -50,23 +46,18 @@
           <product-card v-for="(_, index) in 5" :key="index" />
         </scrollable-section>
 
-        <!-- For Beginners -->
         <q-card bordered class="no-shadow q-my-md bg-white" style="overflow: hidden">
           <horizontal-scroll ref-key="beginnerSlider" class="q-py-md q-px-md">
             <beginner-card v-for="i in 5" :key="i" />
           </horizontal-scroll>
         </q-card>
 
-        <!-- Store Section -->
         <store-section />
 
-        <!-- Featured Categories -->
         <categories-section :categories="categories" />
 
-        <!-- Hot Brands -->
         <brands-section :brands="brands" />
 
-        <!-- Reviews -->
         <scrollable-section
           title="Featured reviews"
           ref-key="featureCardsScroll"
@@ -76,10 +67,8 @@
           <item-feeback v-for="i in 5" :key="i" />
         </scrollable-section>
 
-        <!-- Trust Badges -->
         <trust-badges-section />
 
-        <!-- Product Tabs Section -->
         <product-tabs-section />
       </q-page>
     </q-page-container>
