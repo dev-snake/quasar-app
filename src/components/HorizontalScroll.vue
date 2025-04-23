@@ -13,7 +13,7 @@
 </template>
 
 <script setup lang="ts">
-import { inject, onMounted } from 'vue';
+import { inject, onMounted, ref } from 'vue';
 
 interface Props {
   refKey: string;
@@ -24,11 +24,16 @@ const props = withDefaults(defineProps<Props>(), {
   class: '',
 });
 
-const scrollRefs = inject<Record<string, HTMLElement>>('scrollRefs')!;
+const scrollRefs = ref<Record<string, HTMLElement | null>>({});
 const applyScrollBehavior = inject<(el: HTMLElement) => void>('applyScrollBehavior')!;
 
 onMounted(() => {
-  const el = scrollRefs[props.refKey];
+  const el = scrollRefs.value?.[props.refKey];
+
+  if (!el) {
+    console.error(`Element with refKey "${props.refKey}" not found.`);
+    return;
+  }
   if (el) {
     applyScrollBehavior(el);
   }

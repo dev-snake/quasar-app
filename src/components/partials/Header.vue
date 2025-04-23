@@ -1,10 +1,8 @@
 <template>
   <q-header class="q-mx-auto bg-white q-py-xs no-shadow" style="max-width: 420px">
-    <div class="row justify-between items-center q-pt-xs q-pb-xs q-pl-xs q-pr-xs">
+    <div class="row justify-between items-center q-pl-xs q-pr-xs">
       <q-icon tag="i" class="bx bx-heart text-black text-h5" />
-      <q-typography tag="h1" class="text-black text-h6" style="font-weight: 600"
-        >Marketplace</q-typography
-      >
+      <h1 class="text-black text-h6" style="font-weight: 600">Marketplace</h1>
       <q-icon tag="i" class="bx bx-cart-alt text-black text-h5" />
     </div>
     <div class="relative-position q-px-xs">
