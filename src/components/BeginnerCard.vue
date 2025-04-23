@@ -10,6 +10,4 @@
   </q-card>
 </template>
 
-<script setup lang="ts">
-// No props needed
-</script>
+<script setup lang="ts"></script>
