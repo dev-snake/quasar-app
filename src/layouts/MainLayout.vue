@@ -11,7 +11,7 @@
           icon-color="yellow"
           title="Trending"
           ref-key="trendingScroll"
-          class="q-mt-md bg-white q-py-md"
+          class="q-mt-md bg-white q-by-md"
         >
           <product-card v-for="(_, index) in 5" :key="index" />
         </scrollable-section>

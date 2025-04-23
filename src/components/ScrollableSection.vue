@@ -1,6 +1,6 @@
 <template>
   <q-card :class="props.class" :bordered="props.bordered" flat>
-    <div class="row items-center q-mb-sm q-px-xs">
+    <div class="row items-center q-mb-sm q-px-xs q-pt-md">
       <q-icon
         v-if="props.icon"
         :name="props.icon"
@@ -10,7 +10,7 @@
       />
       <div class="text-subtitle2 text-grey-7">{{ props.title }}</div>
       <q-space />
-      <q-icon name="arrow_forward" size="xs" />
+      <q-icon name="arrow_forward" size="xs" class="q-pr-xs" />
     </div>
 
     <horizontal-scroll :ref-key="props.refKey" class="q-pl-md">
